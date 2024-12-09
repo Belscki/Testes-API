@@ -2,13 +2,16 @@ const token = sessionStorage.getItem('token');
 if (!token) {
     window.location.href = '../index.html'
     console.log('Token não encontrado. O login talvez não tenha sido realizado.');
+}else{
+    console.log('token-' + token)
 }
-
+ 
 $(document).ready(function () {
     if (!token) {
         alert('Você precisa fazer login primeiro!');
         return;
     }
+
     $.ajax({
         url: 'http://localhost:3000/protegido/user',
         type: 'GET',
@@ -16,18 +19,17 @@ $(document).ready(function () {
             'Authorization': 'Bearer ' + token
         },
         success: function (response) {
+            console.log(response);
             var user = response.user;
-            console.log(response.user)
+            console.log("User" + response.user)
             $('#header').append(`
                 <h1>Olá ${user.username}</h1>
                 `)
         },
         error: function (xhr, status, error) {
-            alert('Erro ao acessar os dados protegidos: ' + error);
+            console.log('Erro ao acessar os dados protegidos: ' + error);
         }
     });
-
-
     $('#logout').click(function () {
         sessionStorage.clear();
         window.location.href = '../index.html'
