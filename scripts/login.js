@@ -6,7 +6,7 @@ $(document).ready(function () {
         const password = $('#pass').val();
 
         $.ajax({
-            url: 'http://localhost:3000/login',
+            url: 'https://griffon-fitting-remarkably.ngrok-free.app/login',
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({
