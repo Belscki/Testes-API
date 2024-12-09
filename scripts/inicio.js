@@ -10,7 +10,7 @@ $(document).ready(function () {
         return;
     }
     $.ajax({
-        url: 'https://griffon-fitting-remarkably.ngrok-free.app/protegido/user',
+        url: 'http://localhost:3000/protegido/user',
         type: 'GET',
         headers: {
             'Authorization': 'Bearer ' + token
@@ -38,7 +38,7 @@ $(document).ready(function () {
             return;
         }
         $.ajax({
-            url: 'https://griffon-fitting-remarkably.ngrok-free.app/protegido/func',
+            url: 'http://localhost:3000/protegido/func',
             type: 'GET',
             headers: {
                 'Authorization': 'Bearer ' + token
